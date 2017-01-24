@@ -22,6 +22,7 @@ RUN set -xe \
     && apk add --virtual .build-deps $PHPIZE_DEPS \
 
     && echo -e "date.timezone=Asia/Shanghai" > /usr/local/etc/php/conf.d/date_timezone.ini \
+    && echo -e "opcache.enable_cli=off" > /usr/local/etc/php/conf.d/php.ini \
     && pecl install ${PHP_SSH2_VERSION} && docker-php-ext-enable ssh2 \
     && wget "https://getcomposer.org/composer.phar" -O /usr/local/bin/composer \
     && chmod a+x /usr/local/bin/composer \
