@@ -20,7 +20,7 @@ RUN set -xe \
 
 
     && echo -e "date.timezone=Asia/Shanghai" > /usr/local/etc/php/conf.d/date_timezone.ini \
-    && pecl install ${PHP_SSH2_VERSION} && docker-php-ext-enable ssh2 \
+    && echo y | pecl install ${PHP_SSH2_VERSION} && docker-php-ext-enable ssh2 \
     # 配置ssh
     && mkdir /root/.ssh \
     && echo -e "Host *\n\tStrictHostKeyChecking no\n" >> /root/.ssh/config \
