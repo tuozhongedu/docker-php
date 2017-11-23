@@ -1,7 +1,7 @@
 FROM php:7.1-alpine
 MAINTAINER Peijun Cong <congpeijun@tuozhongedu.com>
 
-ENV PHP_SSH2_VERSION ssh2-0.13
+ENV PHP_SSH2_VERSION ssh2-1.1.2
 
 ENV PHPIZE_DEPS \
         autoconf \
