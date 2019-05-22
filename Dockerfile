@@ -1,4 +1,4 @@
-FROM php:7.1-alpine
+FROM php:7.2-cli-alpine
 MAINTAINER Peijun Cong <congpeijun@tuozhongedu.com>
 
 ENV PHP_SSH2_VERSION ssh2-1.1.2
@@ -22,8 +22,9 @@ RUN set -xe \
     && apk add --virtual .build-deps $PHPIZE_DEPS \
 
     && echo -e "date.timezone=Asia/Shanghai" > /usr/local/etc/php/conf.d/date_timezone.ini \
-    && echo -e "opcache.enable_cli=off" > /usr/local/etc/php/conf.d/php.ini \
+    && echo -e "opcache.enable_cli=on" > /usr/local/etc/php/conf.d/php.ini \
     && pecl install ${PHP_SSH2_VERSION} && docker-php-ext-enable ssh2 \
+    && docker-php-ext-enable opcache \
     && wget "https://getcomposer.org/composer.phar" -O /usr/local/bin/composer \
     && chmod a+x /usr/local/bin/composer \
 
@@ -33,5 +34,3 @@ RUN set -xe \
     && apk del .build-deps \
     && rm -rf /var/cache/apk/* \
     && rm -rf /tmp/*
-
-
