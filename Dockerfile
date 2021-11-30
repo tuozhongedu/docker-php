@@ -12,7 +12,7 @@ ENV PHPIZE_DEPS \
         make \
         pkgconf \
         re2c \
-        libssh2
+        libssh2-dev
 
 RUN set -xe \
     && apk add --update \
