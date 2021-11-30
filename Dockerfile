@@ -1,4 +1,4 @@
-FROM php:7.2.34-cli-alpine3.12
+FROM php:7.2-cli-alpine
 MAINTAINER Peijun Cong <congpeijun@tuozhongedu.com>
 
 ENV PHP_SSH2_VERSION ssh2-1.1.2
@@ -12,7 +12,7 @@ ENV PHPIZE_DEPS \
         make \
         pkgconf \
         re2c \
-        libssh2-dev
+        libssh2
 
 RUN set -xe \
     && apk add --update \
