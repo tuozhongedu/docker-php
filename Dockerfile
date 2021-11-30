@@ -1,4 +1,4 @@
-FROM php:7.2-cli-alpine
+FROM php:7.2.34-cli-alpine3.12
 MAINTAINER Peijun Cong <congpeijun@tuozhongedu.com>
 
 ENV PHP_SSH2_VERSION ssh2-1.1.2
